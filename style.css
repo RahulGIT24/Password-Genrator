@@ -1,10 +1,63 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: #F5F5F5;
     /* background-color: #333333; */
     box-sizing: border-box;
 }
+
+header nav {
+    height: 10vh;
+}
+
+main {
+    height: 90vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #333333;
+    color: #F5F5F5;
+    border-radius: 12px;
+    border: 1px solid #333333;
+    min-height: 70vh;
+    max-width: 45%;
+}
+
+.container h4 {
+    margin: 12px auto;
+    text-align: center;
+}
+
+label {
+    color: #F5F5F5;
+}
+
+input {
+    margin-top: 12px;
+}
+
+.button {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result{
+    margin-top: 12px;
+}
+
+.checks{
+    font-size: 19px;
+    margin-top: 23px;
+}
+
