@@ -43,6 +43,7 @@ label {
 
 input {
     margin-top: 12px;
+    outline: none;
 }
 
 .button {
@@ -52,12 +53,32 @@ input {
     align-items: center;
 }
 
-.result{
+.button button {
+    width: 100%;
+}
+
+.result {
     margin-top: 12px;
 }
 
-.checks{
+.checks {
     font-size: 19px;
     margin-top: 23px;
 }
 
+.generated-password {
+    margin-bottom: 23px;
+}
+
+.generated-password input {
+    background: #333333;
+    padding: 15px 5px;
+}
+
+.generated-password input::placeholder {
+    color: #F5F5F5;
+}
+
+#copyBtn {
+    margin: 18px;
+}
