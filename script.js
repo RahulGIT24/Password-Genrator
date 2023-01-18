@@ -5,7 +5,7 @@ const keys = {
   number_values: "1234567890",
   special_characters: "!@#~$%^&*()-=_+.,;:'/?`{}[]",
 };
-
+document.getElementById("copyBtn").disabled = true; // By default copy button is disabled
 //* For checkboxes
 const uppercase = document.getElementById("uppercase");
 const lowercase = document.getElementById("lowercase");
@@ -74,7 +74,6 @@ function numberSpecial(length) {
   return password;
 }
 
-// TODO
 function upperLowerNumber(length) {
   combine =
     keys.number_values + keys.uppercase_characters + keys.lowercase_characters;
@@ -84,7 +83,6 @@ function upperLowerNumber(length) {
   return password;
 }
 
-//TODO
 function upperLowerSpecial(length) {
   combine =
     keys.lowercase_characters +
@@ -96,7 +94,6 @@ function upperLowerSpecial(length) {
   return password;
 }
 
-// TODO
 function upperNumberSpecial(length) {
   combine =
     keys.uppercase_characters + keys.number_values + keys.special_characters;
@@ -106,7 +103,6 @@ function upperNumberSpecial(length) {
   return password;
 }
 
-// TODO
 function lowerNumberSpecial(length) {
   combine =
     keys.number_values + keys.lowercase_characters + keys.special_characters;
@@ -160,55 +156,105 @@ function generatePassword() {
     special.checked
   ) {
     password = "";
+    document.getElementById("generateBlock").innerText = all_check(passlen);
     console.log(all_check(passlen));
   } else if (uppercase.checked && numbers.checked && lowercase.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText =
+      upperLowerNumber(passlen);
     console.log(upperLowerNumber(passlen));
   } else if (uppercase.checked && special.checked && lowercase.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText =
+      upperLowerSpecial(passlen);
     console.log(upperLowerSpecial(passlen));
   } else if (uppercase.checked && special.checked && numbers.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText =
+      upperNumberSpecial(passlen);
     console.log(upperNumberSpecial(passlen));
   } else if (lowercase.checked && special.checked && numbers.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText =
+      lowerNumberSpecial(passlen);
     console.log(lowerNumberSpecial(passlen));
   } else if (uppercase.checked && lowercase.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText = upperLower(passlen);
     console.log(upperLower(passlen));
   } else if (uppercase.checked && numbers.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText = upperNumber(passlen);
     console.log(upperNumber(passlen));
   } else if (uppercase.checked && special.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText = upperSpecial(passlen);
     console.log(upperSpecial(passlen));
   } else if (lowercase.checked && special.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText = lowerSpecial(passlen);
     console.log(lowerSpecial(passlen));
   } else if (lowercase.checked && numbers.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText = lowerNumber(passlen);
     console.log(lowerNumber(passlen));
   } else if (special.checked && numbers.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText = numberSpecial(passlen);
     console.log(numberSpecial(passlen));
   } else if (lowercase.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText =
+      lowercase_pass(passlen);
     console.log(lowercase_pass(passlen));
   } else if (uppercase.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText =
+      uppercase_pass(passlen);
     console.log(uppercase_pass(passlen));
   } else if (numbers.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText = number_pass(passlen);
     console.log(number_pass(passlen));
   } else if (special.checked) {
     password = "";
+    document.getElementById("generateBlock").innerText = special_pass(passlen);
     console.log(special_pass(passlen));
   } else {
-    alert("Please select at least one checkbox");
+    document.getElementById("generateBlock").innerText =
+      "Please select at least one checkbox";
+    document.getElementById("copyBtn").disabled = true;
   }
 }
 
 //* Adding Event in Generate Password Button
 submit.addEventListener("click", () => {
-  generatePassword();
+  if (document.getElementById("length").value == 0) {
+    document.getElementById("generateBlock").innerText =
+      "Please enter password length";
+    document.getElementById("copyBtn").disabled = true;
+  } else {
+    document.getElementById("copyBtn").disabled = false;
+    generatePassword();
+  }
+});
+
+//* Function to copy password
+
+function copyFunction(text) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.select();
+  document.execCommand("Copy");
+  textArea.remove();
+}
+
+//* Adding Event in copy Button
+copyBtn.addEventListener("click", () => {
+  document.getElementById("copyBtn").innerText = "Copied!";
+  setInterval(() => {
+    document.getElementById("copyBtn").innerText = "Copy";
+  }, 3000);
+  copyFunction(document.getElementById("generateBlock").innerText);
 });

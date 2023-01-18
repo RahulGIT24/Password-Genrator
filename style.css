@@ -72,7 +72,9 @@ input {
 
 .generated-password input {
     background: #333333;
+    color: #F5F5F5;
     padding: 15px 5px;
+    text-align: center;
 }
 
 .generated-password input::placeholder {
@@ -81,4 +83,43 @@ input {
 
 #copyBtn {
     margin: 18px;
+}
+
+#passGen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 67px;
+    border: 1px solid #F5F5F5;
+    border-radius: 46px;
+    text-align: center;
+    color: #F5F5F5;
+}
+
+#generateBlock {
+    font-size: 25px;
+}
+
+/* Responsive */
+
+@media screen and (max-width:1035px) {
+    .container {
+        max-width: 75%;
+    }
+}
+
+@media screen and (max-width:613px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width:545px) {
+    .container {
+        max-width: 90%;
+    }
+
+    #generateBlock {
+        font-size: 15px;
+    }
 }

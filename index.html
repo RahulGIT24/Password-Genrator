@@ -32,88 +32,87 @@
     <main>
       <div class="container">
         <h4>Your Own Password Generator</h4>
-        <hr>
+        <hr />
         <div class="generated-password">
           <form class="row g-3">
             <div class="row g-3">
-              <!--  TODO -->
               <div class="col">
-                <input
-                type="text"
-                class="form-control"
-                id="passGen"
-                placeholder="Generated password"
-              />
+                <div id="passGen">
+                  <b id="generateBlock" class="boldClass"
+                    >Generated Password here</b
+                  >
+                </div>
               </div>
               <div class="col-auto">
-                <button type="button" class="btn btn-light mb-3" id="copyBtn">Copy</button>
+                <button type="button" class="btn btn-light mb-3" id="copyBtn">
+                  Copy
+                </button>
               </div>
             </div>
           </form>
         </div>
         <div class="forms">
-            <div class="mb-3">
-              <input
-                type="number"
-                class="form-control"
-                id="length"
-                placeholder="Password Length (Optional)"
-                min="8"
-                max="50"
-              />
-              <div class="checks">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="uppercase"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Include Uppercase Characters (A,B,C,D...)
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="lowercase"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Include Lowercase Characters (a,b,c,d...)
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="numbers"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Include Numbers (1,2,3,4...)
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="special"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Include Special Characters (@,*,[],&...)
-                  </label>
-                </div>
-                <div class="button">
-                  <button type="button" class="btn btn-dark" id="submit">
-                    Generate Password
-                  </button>
-                </div>
+          <div class="mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="length"
+              placeholder="Password Length"
+              min="8"
+              max="50"
+            />
+            <div class="checks">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="uppercase"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Include Uppercase Characters (A,B,C,D...)
+                </label>
               </div>
-              <div class="result"></div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="lowercase"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Include Lowercase Characters (a,b,c,d...)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="numbers"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Include Numbers (1,2,3,4...)
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="special"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Include Special Characters (@,*,[],&...)
+                </label>
+              </div>
+              <div class="button">
+                <button type="button" class="btn btn-dark" id="submit">
+                  Generate Password
+                </button>
+              </div>
             </div>
+            <div class="result"></div>
           </div>
         </div>
       </div>
