@@ -234,8 +234,18 @@ submit.addEventListener("click", () => {
       "Please enter password length";
     document.getElementById("copyBtn").disabled = true;
   } else {
-    document.getElementById("copyBtn").disabled = false;
-    generatePassword();
+    if (document.getElementById("length").value > 30) {
+      document.getElementById("generateBlock").innerText =
+        "Password length should be less than 30";
+      document.getElementById("copyBtn").disabled = true;
+    } else if (document.getElementById("length").value < 8) {
+      document.getElementById("generateBlock").innerText =
+        "Password length should be more than 8";
+      document.getElementById("copyBtn").disabled = true;
+    } else {
+      document.getElementById("copyBtn").disabled = false;
+      generatePassword();
+    }
   }
 });
 
